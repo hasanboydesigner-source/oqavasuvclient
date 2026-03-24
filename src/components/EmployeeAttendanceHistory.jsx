@@ -43,13 +43,13 @@ const EmployeeAttendanceHistory = ({ employee, isOpen, onClose }) => {
     }
   };
 
-  // Kechikish hisoblash funksiyasi (dars boshlanish: 8:30)
+  // Kechikish hisoblash funksiyasi (dars boshlanish: 9:30)
   const calculateLateTime = (checkInTime) => {
     if (!checkInTime) return null;
 
     const [hours, minutes] = checkInTime.split(":").map(Number);
     const checkInMinutes = hours * 60 + minutes;
-    const startTimeMinutes = 8 * 60 + 30; // 8:30
+    const startTimeMinutes = 9 * 60 + 30; // 9:30
 
     if (checkInMinutes > startTimeMinutes) {
       const lateMinutes = checkInMinutes - startTimeMinutes;

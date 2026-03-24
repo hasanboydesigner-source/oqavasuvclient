@@ -586,11 +586,11 @@ const WaterUsagePage = () => {
       ? Math.round(((presentStudents + lateStudents) / totalStudents) * 100)
       : 0;
 
-  // 📊 Kechikish hisoblash funksiyasi (8:30 asosida)
+  // 📊 Kechikish hisoblash funksiyasi (9:30 asosida)
   const calculateLateInfo = (checkInTime) => {
     if (!checkInTime) return { isLate: false, lateMinutes: 0, lateText: "" };
 
-    const LATE_THRESHOLD_HOUR = 8;
+    const LATE_THRESHOLD_HOUR = 9;
     const LATE_THRESHOLD_MINUTE = 30;
 
     const [hours, minutes] = checkInTime.split(":").map(Number);

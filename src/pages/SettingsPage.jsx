@@ -22,7 +22,7 @@ const SettingsPage = () => {
     website: "www.boborahim-mashrab.uz",
     startTime: "08:00",
     endTime: "14:00",
-    lateThreshold: "08:30",
+    lateThreshold: "09:30",
     emailNotifications: true,
     smsNotifications: false,
     weeklyReports: true,
