@@ -101,11 +101,11 @@ const LoginPage = ({ onLogin }) => {
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-[#EDEDED] p-4 font-inter">
-      {/* Main Container - Forced horizontal layout (flex-row) */}
-      <div className="w-full max-w-[1240px] bg-white rounded-[32px] overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.03)] flex flex-row min-h-[520px]">
+      {/* Main Container - Responsive layout */}
+      <div className="w-full max-w-[1240px] bg-white rounded-[24px] md:rounded-[32px] overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.03)] flex flex-col lg:flex-row min-h-[520px]">
 
-        {/* Left Side - Information Block (Fixed 40% width) */}
-        <div className="w-[40%] relative p-8 md:p-10 flex flex-col justify-between overflow-hidden">
+        {/* Left Side - Information Block (Responsive width) */}
+        <div className="lg:w-[40%] relative p-8 md:p-10 flex flex-col justify-between overflow-hidden lg:min-h-full min-h-[240px]">
           {/* Mesh Gradient Background */}
           <div className="absolute inset-0 z-0">
             <div className="absolute inset-0 bg-[#E0F2FE]"></div>
@@ -126,8 +126,8 @@ const LoginPage = ({ onLogin }) => {
           </div>
 
           {/* Tagline */}
-          <div className="relative z-10">
-            <h1 className="text-[28px] md:text-[32px] font-[800] text-[#1A1A1A] leading-[1.05] tracking-tight">
+          <div className="relative z-10 mt-8 lg:mt-0">
+            <h1 className="text-[24px] md:text-[32px] font-[800] text-[#1A1A1A] leading-[1.05] tracking-tight">
               Davomat boshqaruvida zamonaviy va qulay yechim.
             </h1>
           </div>
@@ -137,10 +137,10 @@ const LoginPage = ({ onLogin }) => {
         <div className="flex-1 bg-white p-8 md:p-10 lg:p-12 flex flex-col justify-center">
           <div className="max-w-[360px] w-full mx-auto">
             {/* Asterisk Icon (Reference match) */}
-            <div className="text-[#0EA5E9] text-5xl font-serif leading-none mb-4 select-none">*</div>
+            <div className="text-[#0EA5E9] text-4xl md:text-5xl font-serif leading-none mb-2 md:mb-4 select-none">*</div>
 
-            <h2 className="text-[34px] font-extrabold text-[#1A1A1A] mb-3 tracking-tighter">Tizimga kirish</h2>
-            <p className="text-[#999999] text-[14px] leading-relaxed mb-10 font-medium">
+            <h2 className="text-[28px] md:text-[34px] font-extrabold text-[#1A1A1A] mb-2 md:mb-3 tracking-tighter">Tizimga kirish</h2>
+            <p className="text-[#999999] text-[13px] md:text-[14px] leading-relaxed mb-6 md:mb-10 font-medium">
               Xodimlar davomati va hisobotlarni bir joyda boshqarish uchun tizimga kiring.
             </p>
 

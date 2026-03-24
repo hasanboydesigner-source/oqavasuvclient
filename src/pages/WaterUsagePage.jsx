@@ -842,23 +842,23 @@ const WaterUsagePage = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50 px-6 py-6">
+    <div className="min-h-screen bg-gray-50 px-4 md:px-6 py-4 md:py-6">
       <div className="space-y-6">
         {/* Page Header */}
-        <div className="flex items-center justify-between">
+        <div className="flex flex-col sm:items-center sm:flex-row justify-between gap-4">
           <div>
-            <h1 className="text-2xl font-bold text-gray-900">Davomat</h1>
-            <p className="text-sm text-gray-500 mt-1">
+            <h1 className="text-xl md:text-2xl font-bold text-gray-900 leading-tight">Davomat</h1>
+            <p className="text-xs md:text-sm text-gray-500 mt-1">
               Xodimlar davomat qaydlarini real-vaqtda kuzatish
             </p>
           </div>
           <div className="flex items-center gap-3">
             <button
               onClick={handleManualExport}
-              className="flex items-center gap-2 px-4 py-2 bg-emerald-600 text-white rounded-xl text-sm font-medium hover:bg-emerald-700 transition-colors"
+              className="w-full sm:w-auto flex items-center justify-center gap-2 px-4 py-2 bg-emerald-600 text-white rounded-xl text-sm font-medium hover:bg-emerald-700 transition-colors shadow-sm shadow-emerald-900/10"
             >
               <FileText className="w-4 h-4" />
-              Excel Export
+              <span>Excel Export</span>
             </button>
           </div>
         </div>
@@ -868,7 +868,7 @@ const WaterUsagePage = () => {
 
 
         {/* Stats Cards - Dashboard style */}
-        <div className="grid grid-cols-5 gap-5">
+        <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-5 gap-4 md:gap-5">
           {/* Jami */}
           <div className="bg-white border border-gray-100 rounded-2xl p-5 shadow-sm">
             <div className="flex items-center justify-between mb-4">
@@ -1063,22 +1063,22 @@ const WaterUsagePage = () => {
             <table className="w-full text-sm">
               <thead>
                 <tr className="bg-gray-50 border-b border-gray-200">
-                  <th className="text-left py-3 px-4 font-semibold text-gray-700">
+                  <th className="text-left py-3 px-4 font-semibold text-gray-700 whitespace-nowrap">
                     Xodim Ismi
                   </th>
-                  <th className="text-center py-3 px-4 font-semibold text-gray-700">
+                  <th className="text-center py-3 px-4 font-semibold text-gray-700 whitespace-nowrap">
                     Bo'lim
                   </th>
-                  <th className="text-center py-3 px-4 font-semibold text-gray-700">
+                  <th className="text-center py-3 px-4 font-semibold text-gray-700 whitespace-nowrap">
                     Kelgan
                   </th>
-                  <th className="text-center py-3 px-4 font-semibold text-gray-700">
+                  <th className="text-center py-3 px-4 font-semibold text-gray-700 whitespace-nowrap">
                     Ketgan
                   </th>
-                  <th className="text-center py-3 px-4 font-semibold text-gray-700">
+                  <th className="text-center py-3 px-4 font-semibold text-gray-700 whitespace-nowrap">
                     Status
                   </th>
-                  <th className="text-center py-3 px-4 font-semibold text-gray-700">
+                  <th className="text-center py-3 px-4 font-semibold text-gray-700 whitespace-nowrap">
                     Amallar
                   </th>
                 </tr>

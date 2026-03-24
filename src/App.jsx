@@ -41,6 +41,7 @@ axios.interceptors.response.use(
 function App() {
   const [user, setUser] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
+  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
   const API_BASE = import.meta.env.VITE_API_BASE || "http://localhost:5000";
 
@@ -102,11 +103,26 @@ function App() {
   return (
     <ErrorBoundary>
       <BrowserRouter>
-        <div className="flex h-screen bg-gray-50 overflow-hidden">
-          <Sidebar />
+        <div className="flex h-screen bg-gray-50 overflow-hidden relative">
+          {/* Mobile Overlay */}
+          {isSidebarOpen && (
+            <div
+              className="fixed inset-0 bg-black/50 z-40 md:hidden"
+              onClick={() => setIsSidebarOpen(false)}
+            ></div>
+          )}
 
-          <div className="flex-1 flex flex-col overflow-hidden">
-            <Header user={user} onLogout={handleLogout} />
+          <Sidebar
+            isOpen={isSidebarOpen}
+            onClose={() => setIsSidebarOpen(false)}
+          />
+
+          <div className="flex-1 flex flex-col overflow-hidden w-full">
+            <Header
+              user={user}
+              onLogout={handleLogout}
+              onToggleSidebar={() => setIsSidebarOpen(!isSidebarOpen)}
+            />
             <main className="flex-1 overflow-y-auto">
               <Routes>
                 <Route

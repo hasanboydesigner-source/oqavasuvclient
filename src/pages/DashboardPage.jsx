@@ -115,7 +115,7 @@ const DashboardPage = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50 px-6 py-6">
+    <div className="min-h-screen bg-gray-50 px-4 md:px-6 py-4 md:py-6">
       {/* Header */}
       <div className="mb-8">
         <div className="flex items-center justify-between">
@@ -137,7 +137,7 @@ const DashboardPage = () => {
       </div>
 
       {/* Main Stats Grid */}
-      <div className="grid grid-cols-2 gap-5 mb-6">
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-5 mb-6">
         {/* Overall Attendance Card */}
         <div className="bg-white border border-gray-100 rounded-2xl p-5 shadow-sm">
           <div className="flex items-center justify-between mb-4">
@@ -195,9 +195,9 @@ const DashboardPage = () => {
       </div>
 
       {/* Bottom Section */}
-      <div className="grid grid-cols-3 gap-6">
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         {/* Recent Activity */}
-        <div className="col-span-2 bg-white border border-gray-100 rounded-2xl shadow-sm overflow-hidden">
+        <div className="lg:col-span-2 bg-white border border-gray-100 rounded-2xl shadow-sm overflow-hidden">
           <div className="px-6 py-4 border-b border-gray-100 flex items-center justify-between">
             <div className="flex items-center gap-3">
               <div className="p-2 bg-green-50 rounded-lg">
@@ -214,7 +214,7 @@ const DashboardPage = () => {
           </div>
 
           {/* Table Header */}
-          <div className="grid grid-cols-12 gap-4 px-6 py-3 bg-gray-50 text-xs font-semibold text-gray-500 uppercase tracking-wide">
+          <div className="hidden sm:grid grid-cols-12 gap-4 px-6 py-3 bg-gray-50 text-xs font-semibold text-gray-500 uppercase tracking-wide">
             <div className="col-span-4">Ism</div>
             <div className="col-span-3">Lavozim</div>
             <div className="col-span-3 text-center">Status</div>
@@ -227,11 +227,11 @@ const DashboardPage = () => {
               recentActivity.slice(0, 10).map((activity, index) => (
                 <div
                   key={activity.id || index}
-                  className="grid grid-cols-12 gap-4 px-6 py-3 hover:bg-gray-50 transition-colors items-center"
+                  className="grid grid-cols-2 sm:grid-cols-12 gap-3 sm:gap-4 px-4 sm:px-6 py-3 sm:py-3 hover:bg-gray-50 transition-colors items-center border-b sm:border-b-0 border-gray-50 last:border-b-0"
                 >
                   {/* Name */}
-                  <div className="col-span-4 flex items-center gap-3">
-                    <div className="w-8 h-8 rounded-lg flex items-center justify-center text-white text-xs font-semibold bg-violet-500">
+                  <div className="col-span-2 sm:col-span-4 flex items-center gap-3">
+                    <div className="w-8 h-8 rounded-lg flex items-center justify-center text-white text-xs font-semibold bg-violet-500 shrink-0">
                       {activity.avatar}
                     </div>
                     <span className="text-sm font-medium text-gray-900 truncate">
@@ -240,15 +240,15 @@ const DashboardPage = () => {
                   </div>
 
                   {/* Role */}
-                  <div className="col-span-3">
-                    <span className="inline-flex items-center gap-1.5 px-2 py-1 rounded text-xs font-medium bg-violet-50 text-violet-700">
+                  <div className="sm:col-span-3">
+                    <span className="inline-flex items-center gap-1.5 px-2 py-1 rounded text-[10px] sm:text-xs font-medium bg-violet-50 text-violet-700">
                       <Briefcase className="w-3 h-3" />
                       {getRoleLabel(activity.role)}
                     </span>
                   </div>
 
                   {/* Status */}
-                  <div className="col-span-3 text-center">
+                  <div className="sm:col-span-3 sm:text-center flex sm:block justify-start">
                     <span
                       className={`inline-flex items-center gap-1 px-2.5 py-1 rounded-full text-xs font-semibold ${
                         activity.action === "Kirdi"
@@ -266,8 +266,8 @@ const DashboardPage = () => {
                   </div>
 
                   {/* Time */}
-                  <div className="col-span-2 text-right">
-                    <span className="text-sm font-medium text-gray-600">
+                  <div className="sm:col-span-2 text-right flex sm:block justify-end">
+                    <span className="text-xs sm:text-sm font-medium text-gray-600">
                       {activity.time}
                     </span>
                   </div>

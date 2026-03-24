@@ -1,8 +1,8 @@
 import React from "react";
 import { useLocation, useNavigate } from "react-router-dom";
-import { Home, Calendar, Bell, Droplets } from "lucide-react";
+import { Home, Calendar, Bell, Droplets, X } from "lucide-react";
 
-const CleanSidebar = () => {
+const CleanSidebar = ({ isOpen, onClose }) => {
   const location = useLocation();
   const navigate = useNavigate();
 
@@ -23,18 +23,32 @@ const CleanSidebar = () => {
   ];
 
   return (
-    <aside className="w-64 h-screen sticky top-0 flex flex-col bg-white border-r border-gray-200">
-      {/* Logo */}
-      <div className="px-6 py-5 border-b border-gray-200">
+    <aside
+      className={`
+        fixed inset-y-0 left-0 z-50 w-64 bg-white border-r border-gray-200 flex flex-col
+        transform transition-transform duration-300 ease-in-out lg:relative lg:translate-x-0
+        ${isOpen ? "translate-x-0 shadow-2xl" : "-translate-x-full shadow-none"}
+      `}
+    >
+      {/* Logo & Close Button */}
+      <div className="px-6 py-5 border-b border-gray-200 flex items-center justify-between">
         <div className="flex items-center gap-3">
           <div className="w-12 h-12 bg-white rounded-lg flex items-center justify-center overflow-hidden border border-gray-100">
             <img src="/water.png" alt="O'zsuvta'minot" className="w-10 h-10 object-contain" />
           </div>
           <div>
-            <h2 className="font-bold text-lg text-gray-900">Davomat Tizimi</h2>
-            <p className="text-xs text-gray-500">Attendance System</p>
+            <h2 className="font-bold text-lg text-gray-900 leading-tight">Davomat</h2>
+            <p className="text-xs text-gray-500 whitespace-nowrap">Attendance System</p>
           </div>
         </div>
+
+        {/* Mobile Close Button */}
+        <button
+          onClick={onClose}
+          className="lg:hidden p-2 text-gray-400 hover:text-gray-600 hover:bg-gray-100 rounded-lg transition-colors"
+        >
+          <X className="w-5 h-5" />
+        </button>
       </div>
 
       {/* Navigation */}
@@ -47,7 +61,10 @@ const CleanSidebar = () => {
             return (
               <button
                 key={item.id}
-                onClick={() => navigate(item.path)}
+                onClick={() => {
+                  navigate(item.path);
+                  if (window.innerWidth < 1024) onClose();
+                }}
                 className={`
                   w-full flex items-center gap-3 px-4 py-3 rounded-lg text-sm font-medium
                   transition-all duration-200

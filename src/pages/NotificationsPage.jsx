@@ -146,17 +146,17 @@ const NotificationsPage = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50 px-6 py-6">
+    <div className="min-h-screen bg-gray-50 px-4 md:px-6 py-4 md:py-6">
       <div className="max-w-7xl mx-auto">
         {/* Header */}
-        <div className="flex items-center justify-between mb-8">
+        <div className="flex flex-col sm:items-center sm:flex-row justify-between mb-6 md:mb-8 gap-4">
           <div>
-            <h1 className="text-2xl font-bold text-gray-900 tracking-tight">Bildirishnomalar</h1>
-            <p className="text-sm text-gray-500 mt-1">Avtomatik va qo'lda xabarnomalar yuborish tizimi</p>
+            <h1 className="text-xl md:text-2xl font-bold text-gray-900 tracking-tight leading-tight">Bildirishnomalar</h1>
+            <p className="text-xs md:text-sm text-gray-500 mt-1">Avtomatik va qo'lda xabarnomalar yuborish tizimi</p>
           </div>
 
           {/* Telegram Status Badge */}
-          <div className={`flex items-center gap-2 px-4 py-2 rounded-xl text-sm font-medium border ${telegramStatus.active
+          <div className={`flex items-center gap-2 px-3 md:px-4 py-1.5 md:py-2 rounded-xl text-xs md:text-sm font-medium border self-start sm:self-center ${telegramStatus.active
             ? "bg-emerald-50 text-emerald-700 border-emerald-100"
             : "bg-red-50 text-red-700 border-red-100"
             }`}>
@@ -166,8 +166,8 @@ const NotificationsPage = () => {
         </div>
 
         {/* Quick Actions Support */}
-        <div className="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-1 gap-6 mb-8">
-          <div className="bg-white p-6 rounded-2xl border border-gray-100 shadow-sm hover:shadow-md transition-shadow">
+        <div className="grid grid-cols-1 gap-6 mb-8">
+          <div className="bg-white p-5 md:p-6 rounded-2xl border border-gray-100 shadow-sm hover:shadow-md transition-shadow">
             <div className="flex items-center gap-4 mb-4">
               <div className="p-3 bg-purple-50 rounded-xl text-purple-600">
                 <Building className="w-6 h-6" />
@@ -193,8 +193,8 @@ const NotificationsPage = () => {
               <h2 className="text-lg font-bold text-gray-900">Xabar Yuborish</h2>
               <Plus className="w-5 h-5 text-gray-400" />
             </div>
-            <div className="p-6 space-y-5">
-              <div className="grid grid-cols-2 gap-4">
+            <div className="p-5 md:p-6 space-y-5">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
                   <label className="block text-xs font-bold text-gray-500 uppercase tracking-wider mb-2">Transport</label>
                   <select
